@@ -79,7 +79,7 @@ export default function Home() {
             {posts.map((post, i) => (
               <div
                 key={i}
-                className="border border-zinc-400 p-3 mb-3 bg-gray-300 rounded-2xl"
+                className="border border-zinc-400 p-3 mb-3 bg-[#F5EBE0] rounded-2xl"
               >
                 <p>{post}</p>
               </div>
