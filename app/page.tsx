@@ -51,28 +51,28 @@ export default function Home() {
   };
 
   return (
-    <main className="flex min-h-screen flex-col items-center p-10">
-      <div className="flex w-2/6 flex-col">
-        <div className="bg-gray-300 p-10 border border-zinc-400 rounded-2xl">
-          <h2 className="mb-2 ml-2 text-black">Post your comment</h2>
-          <input
-            type="text"
+    <main className="flex min-h-screen flex-col items-center bg-[#D5BDAF]">
+      <div className="flex w-2/6 flex-col p-10">
+      <h1 className="font-bold text-4xl mb-3 text-black">Comment Section</h1>
+      <div className="bg-[#E3D5CA] p-10 border border-zinc-400 rounded-2xl">
+        <h2 className="mb-2 ml-2">Post your comment</h2>
+        <input
+          type="text"
             value={comment}
             disabled={isLoading}
             onChange={(e) => setComment(e.target.value)}
             placeholder={isLoading ? "Analyzing via Azure AI..." : "Enter your comment here"}
-            className="bg-mauve-300 p-2 w-1/1 border border-zinc-500 text-black rounded-2xl disabled:opacity-50"
-          />
-          <button
-            type="submit"
-            onClick={handlePosting}
-            disabled={isLoading || !comment.trim()}
-            className="bg-mauve-400 pt-2 pb-2 mt-5 border border-zinc-500 rounded-2xl w-2/10 disabled:opacity-50 flex items-center justify-center gap-2"
-          >
-            <h2>{isLoading ? "Checking..." : "Post"}</h2>
-          </button>
-        </div>
-
+          className="bg-[#F5EBE0] p-2 w-1/1 border border-zinc-500 text-black rounded-2xl disabled:opacity-50"
+        />
+        <button
+        type="submit"
+        onClick={handlePosting}
+        disabled={isLoading || !comment.trim()}
+        className="bg-[#F5EBE0] pt-2 pb-2 mt-5 border border-zinc-500 rounded-2xl w-2/10 disabled:opacity-50 flex items-center justify-center gap-2"
+        >
+        <h2>{isLoading ? "Checking..." : "Post"}</h2>
+      </button>
+      </div>
         {posts.length !== 0 && (
           <div className="mt-10">
             <h3 className="mb-3 font-bold text-zinc-700 ml-2">Approved Public Feed</h3>
