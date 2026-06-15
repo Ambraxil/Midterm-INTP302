@@ -1,36 +1,43 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+This is a Next.js app meant that pulls APIs you've set up yourself on it.
 
-## Getting Started
+These are just instructions to run it yourself assuming you've met the prerequisites.
+The files on this GitHub are only meant to run the website, things like the APIs will be needed to be set up by yourself.
 
-First, run the development server:
+Prerequisites:
+Node.js
+npm
+A terminal environment
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Azure Services required:
+Azure Content Safety
+Azure SQL Database
+Azure Web App Services if you're planning to host it.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Environment Variables:
+These are meant to be put into a .env.local file in your root folder where the package.json is.
+If you're planning to host on Azure Web App Services, put the environment variables in their own tab there alongside this one below so the program will create a production build on deployment.
+SCM_DO_BUILD_DURING_DEPLOYMENT=true
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Put all of the requested variables after each corresponding "="
+# Azure AI Content Safety API Configuration
+AZURE_CONTENT_SAFETY_ENDPOINT=
+AZURE_CONTENT_SAFETY_KEY=
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+# Azure SQL Database Configuration
+DB_USER=
+DB_PASSWORD=
+DB_SERVER=
+DB_DATABASE=
 
-## Learn More
+Locally Running Assuming the files are installed and your terminal is navigated to it.
+1. Run "npm install"
 
-To learn more about Next.js, take a look at the following resources:
+2. Run "npm run dev"
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+3. Navigate to http://localhost:3000
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Hosting is automated through Azure Web App Services and GitHub Actions where commits are pushed automatically after hooking up the environment variables and linking a workflow to it.
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Limitations:
+This program will only BLOCK inappropriate comments from being sent. This will not actually do anything to the users such as giving warnings, banning others, or moderating their accounts in any way.
+It simply will give you a popup that the comment was bad, explain what's wrong with it, save the comment, and not post it to the website.
